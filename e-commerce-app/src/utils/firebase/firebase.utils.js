@@ -10,6 +10,7 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
   //there are many providers, but we only like 
   // FacebookAuthProvider,
   // TwitterAuthProvider,
@@ -83,3 +84,7 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 }
 
 export const signOutUser = async () => signOut(auth)
+
+//we will callback this change everytime there is a change
+export const onAuthStateChangedListener = (callback) => 
+        onAuthStateChanged(auth, callback)
