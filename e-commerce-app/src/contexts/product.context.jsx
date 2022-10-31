@@ -1,10 +1,12 @@
-import { createContext, useState, useEffect } from 'react'
-import PRODUCTS from '../shop_data/shop-data.json'
+import { createContext, useState, useEffect } from "react";
+import PRODUCTS from "../shop_data/shop-data.json";
 
 //1: create the context and export it
 export const ProductsContext = createContext({
+  // wewant to store an array of products
   products: [],
-})
+  // add a function that keeps on tract of changes of products setState
+});
 
 //2: create the Provider for the context
 //3: return the Product context
@@ -12,9 +14,11 @@ export const ProductsContext = createContext({
 //5: we render the children between the context provider
 //6: we pass the value
 export const ProductProvider = ({ children }) => {
-  const [products, setProduct] = useState(PRODUCTS)
-  const value = {products}
+  const [products, setProduct] = useState(PRODUCTS);
+  const value = { products };
   return (
-    <ProductsContext.Provider value = {value}>{children}</ProductsContext.Provider>
-  )
-}
+    <ProductsContext.Provider value={value}>
+      {children}
+    </ProductsContext.Provider>
+  );
+};
